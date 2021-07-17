@@ -1,0 +1,67 @@
+
+<!Doctype html>
+<html>
+<head>
+
+  <style>
+    label{
+         width:100px;
+         display:inline-block;
+         }
+    #form{
+          border-radius:10px;
+          background-color:black;
+          color:white;
+          width:280px;
+          padding:4px;
+          }
+   #submit{
+           border-radius:5px;
+           position:relative;
+         left:1px;
+            height:35px;
+           background-color:#FFB6C1;
+           }
+  </style>
+
+</head>
+
+
+<body> 
+<center><h4 style = "color : red">STUDENT ADMISSION PREDICTION</h4>
+ <div id="form">
+    <form action="/predict" method="POST">
+
+ 
+ <br> <label>TOEFL Score:</label><input type="number" style="width: 8em" name="GRE Score"  placeholder="TOEFL Score" required="required"  min="0" max="120" ><br>
+
+ 
+<br> <label> GRE Score:</label><input type="number" style="width: 8em" name="TOEFL Score" placeholder="GRE Score" required="required" min="0" max="340">
+<br>
+  
+<br> <label>University Rating :</label><input type="number" style="width: 8em" name="University Rating" placeholder="University Rating" required="required" min="1" max="5"><br>
+  
+<br><label>SOP:</label><input type="number" style="width: 8em" placeholder="SOP" name="SOP" required="required" onkeypress="return check(event,value)" step="0.1" min="1" max="5"><br>
+  
+<br> <label> LOR:</label><input type="number" style="width: 8em"  placeholder="LOR" name="LOR" required="required" onkeypress="return check(event,value)" step="0.1" min="1" max="5"><br>
+        
+<br> <label> CGPA:</label><input type="number" style="width: 8em" placeholder="CGPA" name="CGPA" required="required" onkeypress="return check(event,value)" step="0.01" min="1" max="10"><br>
+
+     
+<br> <label> Research:</label><input type="number" style="width: 8em" placeholder="Research" name="Research" required="required" min="0" max="1"><br>
+  
+<br>   <input type="submit" id="submit" style=width:118px;height:45px" value="Predict"> <br>
+
+ 
+   </form>
+
+    </div>
+    
+    <div class="row">
+   {% if prediction_text %}
+    <h4 style="text-align: center; color:green"> The Chance of getting Admission of a student is =[{{prediction_text}}] </h4>
+    {% endif %}
+    </div>
+
+<body>
+</html>
